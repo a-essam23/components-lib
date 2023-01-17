@@ -1,5 +1,8 @@
 {
-    "name": "temp-components",
+    "name": "@a-essam23/temp-components",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/a-essam23"
+    },
     "type": "module",
     "version": "0.0.0",
     "description": "A simple React component library -- Tailwind  -- Storybook",
