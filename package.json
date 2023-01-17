@@ -1,0 +1,36 @@
+{
+    "name": "temp-components",
+    "type": "module",
+    "version": "0.0.0",
+    "description": "A simple React component library -- Tailwind  -- Storybook",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "rollup": "rollup -c"
+    },
+    "keywords": [
+        "react"
+    ],
+    "author": "Ahmed Essam",
+    "license": "ISC",
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^24.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "@rollup/plugin-terser": "^0.3.0",
+        "@rollup/plugin-typescript": "^11.0.0",
+        "@types/react": "^18.0.26",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "rollup": "^3.10.0",
+        "rollup-plugin-dts": "^5.1.1",
+        "tslib": "^2.4.1",
+        "typescript": "^4.9.4"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
+    }
+}
