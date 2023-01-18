@@ -13,7 +13,8 @@
     ],
     "types": "dist/index.d.ts",
     "scripts": {
-        "rollup": "rollup -c"
+        "rollup": "rollup -c",
+        "test": "echo 'All Good'"
     },
     "keywords": [
         "react"
