@@ -29,11 +29,10 @@ export default [
 
             postcss({
                 config: { path: "./postcss.config.cjs" },
-                extensions:['.css','.scss'],
+                extensions: [".css", ".scss"],
                 inject: false,
                 extract: "types/index.css",
             }),
-
 
             resolve(),
             commonjs(),
@@ -44,7 +43,7 @@ export default [
     {
         input: "dist/esm/types/index.d.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
-        plugins: [dts()],
+        plugins: [dts({ tsconfig: "./tsconfig.json" })],
         external: ["./index.css"],
     },
 ];
