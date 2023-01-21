@@ -31,7 +31,7 @@ export default [
                 config: { path: "./postcss.config.cjs" },
                 extensions: [".css", ".scss"],
                 inject: false,
-                extract: "types/index.css",
+                extract: "index.css",
             }),
 
             resolve(),
