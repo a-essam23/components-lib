@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color-light: #f8fafc;
+    --primary-color: #e2e8f0;
+    --primary-color-dark: #94a3b8;
+    --primary-color-text: #0c4a6e;
+
+    --secondary-color-light: #0ea5e9;
+    --secondary-color: #0369a1;
+    --secondary-color-dark: #0c4a6e;
+    --secondary-color-text: #e2e8f0;
+}
+.text {
+    &-title {
+        @apply text-4xl tracking-wide sm:text-5xl xl:text-6xl xl:tracking-wider;
+    }
+    &-h1 {
+        @apply text-3xl sm:text-4xl xl:text-5xl;
+    }
+    &-h2 {
+        @apply text-2xl sm:text-3xl xl:text-4xl;
+    }
+    &-h3 {
+        @apply text-2xl sm:text-2xl xl:text-3xl;
+    }
+    &-h4 {
+        @apply text-base sm:text-lg xl:text-2xl;
+    }
+    &-normal {
+        @apply text-base xl:text-lg;
+    }
+}
