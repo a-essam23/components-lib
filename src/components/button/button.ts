@@ -1,8 +1,6 @@
 import { ParentProps } from "@types";
-import { HTMLAttributes } from "react";
 
-export default interface ButtonProps extends ParentProps {
-    // ,HTMLAttributes<HTMLButtonElement>
+export interface ButtonProps extends ParentProps {
     onClick?: () => any;
     hrefType?: "button" | "submit" | "reset";
     animation?: "jump" | "beat" | "wiggle";

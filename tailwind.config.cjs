@@ -1,17 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.{js,ts,jsx,tsx}"],
+    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
             colors: {
-                "primary-light": "var(--primary-color-light)",
-                primary: "var(--primary-color)",
-                "primary-dark": "var(--primary-color-dark)",
-                "primary-text": "var(--primary-color-text)",
-                "secondary-light": "var(--secondary-color-light)",
-                secondary: "var(--secondary-color)",
-                "secondary-dark": "var(--secondary-color-dark)",
-                "secondary-text": "var(--secondary-color-text)",
+                root: "var(--theme-color-root)",
+                light: "var(--theme-color-light)",
+                lighter: "var(--theme-color-lighter)",
+                dark: "var(--theme-color-dark)",
+                darker: "var(--theme-color-darker)",
+                control: "var(--theme-color-control)",
+                wild: "var(--theme-color-wild)",
+            },
+            borderRadius: {
+                primary: "var(--theme-rounded-primary)",
+                secondary: "var(--theme-rounded-secondary)",
             },
             spacing: {
                 88: "22rem",

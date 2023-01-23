@@ -1,5 +1,5 @@
 import { ComponentSizes, ComponentTypes } from "@types";
-import ButtonProps from "./button";
+import { ButtonProps } from "./button";
 
 const Button = ({
     children,
@@ -11,14 +11,18 @@ const Button = ({
     animation,
 }: ButtonProps): JSX.Element => {
     const buttonClass = (): string => {
+        const base = `items-center border text-center w-max h-max transition-all rounded-primary`;
         const types = {
-            primary: `bg-primary-light hover:bg-primary-light border-primary hover:border-primary-light text-primary-text`,
-            secondary: `bg-secondary-light hover:bg-secondary-light border-secondary hover:border-secondary-light text-secondary-text`,
+            primary:
+                "bg-root border-root text-control hover:bg-light active:bg-dark",
+            secondary:
+                "bg-control border-root text-root hover:bg-light hover:text-control active:bg-root",
+            wild: "bg-wild border-root text-control hover:brightness-110 active:brightness-100",
         };
         const sizes = {
-            sm: "text-sm px-2 py-1",
-            md: "text-normal px-3 py-2",
-            lg: "text-h4 px-4 py-3",
+            sm: "text-normal px-1.5 py-1",
+            md: "text-h5 px-6 py-1.5",
+            lg: "text-h4 px-12 py-3",
         };
         const animations = {
             jump: "hover:shadow-lg hover:-translate-y-1 hover:scale-105",
@@ -29,7 +33,7 @@ const Button = ({
         const sizeClass = sizes[size as ComponentSizes] || sizes["md"];
         const animationClass =
             animations[animation as keyof ButtonProps["animation"]] ?? "";
-        return `h-full items-center flex w-max h-max transition-all border-2 ${sizeClass} ${colorClass} ${animationClass}`;
+        return `${base} ${sizeClass} ${colorClass} ${animationClass}`;
     };
     return (
         <button

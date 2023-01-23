@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 :root {
-    --primary-color-light: #f8fafc;
-    --primary-color: #e2e8f0;
-    --primary-color-dark: #94a3b8;
-    --primary-color-text: #0c4a6e;
-
-    --secondary-color-light: #0ea5e9;
-    --secondary-color: #0369a1;
-    --secondary-color-dark: #0c4a6e;
-    --secondary-color-text: #e2e8f0;
+    --theme-color-root: #0284c7;
+    --theme-color-light: #0ea5e9;
+    --theme-color-lighter: #38bdf8;
+    --theme-color-dark: #0369a1;
+    --theme-color-darker: #075985;
+    --theme-color-control: white;
+    --theme-color-wild: #f59e0b;
+    --theme-rounded-primary: 0.4rem;
+    --theme-rounded-secondary: 0.3rem;
 }
 .text {
     &-title {
-        @apply text-4xl tracking-wide sm:text-5xl xl:text-6xl xl:tracking-wider;
+        @apply text-4xl sm:text-5xl xl:text-6xl tracking-wide xl:tracking-wider;
     }
     &-h1 {
         @apply text-3xl sm:text-4xl xl:text-5xl;
@@ -24,10 +24,13 @@
         @apply text-2xl sm:text-3xl xl:text-4xl;
     }
     &-h3 {
-        @apply text-2xl sm:text-2xl xl:text-3xl;
+        @apply text-xl sm:text-2xl xl:text-3xl;
     }
     &-h4 {
-        @apply text-base sm:text-lg xl:text-2xl;
+        @apply text-lg sm:text-xl xl:text-2xl;
+    }
+    &-h5 {
+        @apply text-base sm:text-lg xl:text-xl;
     }
     &-normal {
         @apply text-base xl:text-lg;
