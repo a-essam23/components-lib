@@ -31,7 +31,7 @@ export default [
                 config: { path: "./postcss.config.cjs" },
                 extensions: [".css", ".scss"],
                 inject: false,
-                extract: "types/index.css",
+                extract: "index.css",
             }),
 
             resolve(),
@@ -44,6 +44,6 @@ export default [
         input: "dist/esm/types/index.d.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
         plugins: [dts({ tsconfig: "./tsconfig.json" })],
-        external: ["./index.css"],
+        external: [/\.css$/, /\.scss$/],
     },
 ];
