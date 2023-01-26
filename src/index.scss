@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-    --theme-color-root: #0284c7;
-    --theme-color-light: #0ea5e9;
-    --theme-color-lighter: #38bdf8;
-    --theme-color-dark: #0369a1;
-    --theme-color-darker: #075985;
-    --theme-color-control: white;
-    --theme-color-wild-light: #fbbf24;
-    --theme-color-wild: #f59e0b;
-    --theme-color-wild-dark: #d97706;
-    --theme-rounded-primary: 0.4rem;
-    --theme-rounded-secondary: 0.3rem;
+    --theme-color-root: #489fb5;
+    --theme-color-light: #82c0cc;
+    // --theme-color-lighter: #38bdf8;
+    --theme-color-dark: #16697a;
+    // --theme-color-darker: #075985;
+    --theme-color-control: #ede7e3;
+    // --theme-color-wild-light: #fbbf24;
+    --theme-color-wild: #ffa62b;
+    // --theme-color-wild-dark: #d97706;
+    --theme-rounded-primary: 0.2rem;
+    --theme-rounded-secondary: 0.1rem;
 }
 .text {
     &-title {

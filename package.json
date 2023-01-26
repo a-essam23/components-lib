@@ -14,7 +14,6 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "start": "webpack-dev-server --open --mode development --hot",
-        "build": "webpack --mode production",
         "rollup": "rollup -c",
         "test": "jest"
     },

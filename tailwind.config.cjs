@@ -52,6 +52,7 @@ module.exports = {
                 wiggle: "wiggle 1s ease-in-out infinite",
                 beat: "beat 1s ease-in-out infinite",
             },
+            contrast: { 25: ".25" },
         },
     },
     plugins: [],

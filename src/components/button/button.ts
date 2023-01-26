@@ -1,7 +1,13 @@
-import { ParentProps } from "@types";
+import { BaseButtonProps } from "@types";
+import { BlockButtonProps } from "./block/button_block";
+import { LinkButtonProps } from "./link/button.link";
 
-export interface ButtonProps extends ParentProps {
-    onClick?: () => any;
-    hrefType?: "button" | "submit" | "reset";
-    animation?: "jump" | "beat" | "wiggle";
-}
+type conditionalProps =
+    | ({
+          type?: "link";
+      } & LinkButtonProps)
+    | ({
+          type?: "block";
+      } & BlockButtonProps);
+
+export type ButtonProps = BaseButtonProps & conditionalProps;
