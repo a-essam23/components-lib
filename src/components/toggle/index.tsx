@@ -1,13 +1,12 @@
-import { Button } from "@components";
+import Button from "@components/button";
 import { ToggleProps } from "./toggle";
 import { useState } from "react";
 
 const Toggle = ({
-    children,
-    className,
+    children = "",
+    className = "",
     size,
     type,
-    label,
     toggled = false,
     watch = (toggeled) => {},
     onChange = (toggeled) => {},
@@ -18,17 +17,19 @@ const Toggle = ({
         if (type === "wild") return isToggeled ? "wild" : "secondary";
         return isToggeled ? "primary" : "secondary";
     };
+    // TODO FIX onClick animations >> type
     watch(isToggeled);
     return (
         <Button
             onClick={(): void => {
-                onChange(!isToggeled);
+                onChange(!isToggeled !== false);
                 setIsToggeled(!isToggeled);
             }}
             size={size}
             type={getType()}
+            className={className}
         >
-            {label}
+            {children}
         </Button>
     );
 };
