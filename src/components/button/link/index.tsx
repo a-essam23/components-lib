@@ -54,12 +54,6 @@ const LinkButton = ({
             ] || onClickAnimations["none"]
         );
     };
-    const props = {
-        type: hrefType,
-        onClick: onClick,
-        className: ``,
-        children: children,
-    };
     return (
         <button
             type={hrefType}

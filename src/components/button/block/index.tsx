@@ -1,5 +1,5 @@
 import { ComponentSizes, ComponentVariants } from "@types";
-import { BlockButtonProps } from "./button_block";
+import { BlockButtonProps } from "./button.block";
 
 const BlockButton = ({
     children,
@@ -10,6 +10,7 @@ const BlockButton = ({
     size = "md",
     onHoverAnimation = "simple",
     onClickAnimation = "simple",
+    style,
 }: BlockButtonProps): JSX.Element => {
     const sizeClass = () => {
         const sizes = {
@@ -57,6 +58,7 @@ const BlockButton = ({
     };
     return (
         <button
+            style={style}
             type={hrefType}
             onClick={onClick}
             className={`items-center text-center w-max h-max transition-all rounded-primary border-2

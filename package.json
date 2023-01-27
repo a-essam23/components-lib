@@ -4,8 +4,8 @@
         "access": "public"
     },
     "type": "module",
-    "version": "0.0.4-1",
-    "description": "A simple React component library -- Tailwind  -- Storybook",
+    "version": "0.0.4-3",
+    "description": "A simple React component library built with Tailwind",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "files": [

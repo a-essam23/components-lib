@@ -1,6 +1,8 @@
 import { BaseButtonProps } from "@types";
-import { BlockButtonProps } from "./block/button_block";
+import { BlockButtonProps } from "./block/button.block";
 import { LinkButtonProps } from "./link/button.link";
+
+type ButtonTypes = { type?: "block" | "link" };
 
 type conditionalProps =
     | ({
@@ -10,4 +12,4 @@ type conditionalProps =
           type?: "block";
       } & BlockButtonProps);
 
-export type ButtonProps = BaseButtonProps & conditionalProps;
+export type ButtonProps = BaseButtonProps & ButtonTypes;
