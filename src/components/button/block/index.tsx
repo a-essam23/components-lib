@@ -1,7 +1,7 @@
 import { ComponentSizes, ComponentVariants } from "@types";
-import { BlockButtonProps } from "./button.block";
+import { BlockButtonProps } from "./button_block";
 
-const BlockButton = ({
+const BlockButton: React.FC<BlockButtonProps> = ({
     children,
     className = "",
     onClick,
@@ -11,12 +11,12 @@ const BlockButton = ({
     onHoverAnimation = "simple",
     onClickAnimation = "simple",
     style,
-}: BlockButtonProps): JSX.Element => {
+}): JSX.Element => {
     const sizeClass = () => {
         const sizes = {
             sm: "text-normal px-1.5 py-1",
-            md: "text-h5 px-6 py-1.5",
-            lg: "text-h4 px-12 py-3",
+            md: "text-h5 px-4 py-1",
+            lg: "text-h4 px-8 py-2",
         };
         return sizes[size as ComponentSizes] || sizes["md"];
     };
@@ -25,7 +25,7 @@ const BlockButton = ({
         const variants = {
             primary: "bg-root border-root text-control ",
             secondary: "bg-control border-root text-root ",
-            wild: "bg-wild border-root text-control ",
+            wild: "bg-wild border-root text-root ",
         };
         return variants[variant as ComponentVariants] || variants["primary"];
     };

@@ -1,7 +1,8 @@
 import { ComponentSizes, ComponentVariants } from "@types";
-import { LinkButtonProps } from "./button.link";
+import { FC } from "react";
+import { LinkButtonProps } from "./button_link";
 
-const LinkButton = ({
+const LinkButton: FC<LinkButtonProps> = ({
     children,
     className = "",
     onClick,
@@ -10,7 +11,7 @@ const LinkButton = ({
     size = "md",
     onHoverAnimation = "simple",
     onClickAnimation = "simple",
-}: LinkButtonProps): JSX.Element => {
+}): JSX.Element => {
     const sizeClass = () => {
         const sizes = {
             sm: "text-normal",

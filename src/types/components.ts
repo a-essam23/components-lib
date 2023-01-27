@@ -17,6 +17,7 @@ export interface ParentProps extends ComponentProps {
 }
 
 export interface BaseButtonProps extends ParentProps {
+    type?: "block" | "link";
     onClick?(): any;
     hrefType?: "button" | "submit" | "reset";
 }
