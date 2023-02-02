@@ -1,0 +1,21 @@
+.btn {
+    @apply items-center text-center w-max h-max transition-all rounded-primary border-2;
+    &--primary {
+        @apply bg-root border-root text-control;
+    }
+    &--secondary {
+        @apply bg-control border-root text-root;
+    }
+    &--wild {
+        @apply bg-wild border-root text-dark;
+    }
+    &--sm {
+        @apply text-normal px-1.5 py-1;
+    }
+    &--md {
+        @apply text-h5 px-4 py-1;
+    }
+    &--lg {
+        @apply text-h4 px-8 py-2;
+    }
+}

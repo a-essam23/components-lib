@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@import "./styles/typography.scss";
 
 :root {
     --theme-color-root: #489fb5;
@@ -15,26 +15,5 @@
     --theme-rounded-primary: 0.2rem;
     --theme-rounded-secondary: 0.1rem;
 }
-.text {
-    &-title {
-        @apply text-4xl sm:text-5xl xl:text-6xl tracking-wide xl:tracking-wider;
-    }
-    &-h1 {
-        @apply text-3xl sm:text-4xl xl:text-5xl;
-    }
-    &-h2 {
-        @apply text-2xl sm:text-3xl xl:text-4xl;
-    }
-    &-h3 {
-        @apply text-xl sm:text-2xl xl:text-3xl;
-    }
-    &-h4 {
-        @apply text-lg sm:text-xl xl:text-2xl;
-    }
-    &-h5 {
-        @apply text-base sm:text-lg xl:text-xl;
-    }
-    &-normal {
-        @apply text-base xl:text-lg;
-    }
-}
+
+@tailwind utilities;

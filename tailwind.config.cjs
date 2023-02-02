@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+const sm = "@media (min-width: 640px)";
+const xl = "@media (min-width: 1280px)";
 module.exports = {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {

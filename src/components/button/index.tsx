@@ -7,7 +7,7 @@ import LinkButton from "./link";
 const Button: React.FC<ButtonProps> = ({
     type = "block",
     children,
-    className,
+    className = "",
     hrefType,
     onClick,
     onClickAnimation,
@@ -15,6 +15,8 @@ const Button: React.FC<ButtonProps> = ({
     size,
     style,
     variant,
+    to,
+    Link,
 }): JSX.Element => {
     switch (type) {
         case "block":
@@ -39,6 +41,8 @@ const Button: React.FC<ButtonProps> = ({
         case "link":
             return (
                 <LinkButton
+                    to={to}
+                    Link={Link}
                     className={className}
                     hrefType={hrefType}
                     onClick={onClick}

@@ -1,6 +1,7 @@
+import styles from "./button_block.module.scss";
 import { ComponentSizes, ComponentVariants } from "@types";
 import { BlockButtonProps } from "./button_block";
-
+console.log(styles);
 const BlockButton: React.FC<BlockButtonProps> = ({
     children,
     className = "",
@@ -12,23 +13,23 @@ const BlockButton: React.FC<BlockButtonProps> = ({
     onClickAnimation = "simple",
     style,
 }): JSX.Element => {
-    const sizeClass = () => {
-        const sizes = {
-            sm: "text-normal px-1.5 py-1",
-            md: "text-h5 px-4 py-1",
-            lg: "text-h4 px-8 py-2",
-        };
-        return sizes[size as ComponentSizes] || sizes["md"];
-    };
+    // const sizeClass = () => {
+    //     const sizes = {
+    //         sm: "text-normal px-1.5 py-1",
+    //         md: "text-h5 px-4 py-1",
+    //         lg: "text-h4 px-8 py-2",
+    //     };
+    //     return sizes[size as ComponentSizes] || sizes["md"];
+    // };
 
-    const variantClass = () => {
-        const variants = {
-            primary: "bg-root border-root text-control ",
-            secondary: "bg-control border-root text-root ",
-            wild: "bg-wild border-root text-root ",
-        };
-        return variants[variant as ComponentVariants] || variants["primary"];
-    };
+    // const variantClass = () => {
+    //     const variants = {
+    //         primary: "bg-root border-root text-control ",
+    //         secondary: "bg-control border-root text-root ",
+    //         wild: "bg-wild border-root text-root ",
+    //     };
+    //     return variants[variant as ComponentVariants] || variants["primary"];
+    // };
 
     const onHoverAnimationClass = () => {
         const onHoverAnimations = {
@@ -61,8 +62,11 @@ const BlockButton: React.FC<BlockButtonProps> = ({
             style={style}
             type={hrefType}
             onClick={onClick}
-            className={`items-center text-center w-max h-max transition-all rounded-primary border-2
-            ${sizeClass()} ${variantClass()} ${onHoverAnimationClass()} ${onClickAnimationClass()} ${className}`}
+            className={`${styles.btn} ${
+                styles[`btn--${variant}`] || styles["primary"]
+            } ${
+                styles[`btn--${size}`] || styles["btn--md"]
+            } ${onHoverAnimationClass()} ${onClickAnimationClass()} ${className}`}
         >
             {children}
         </button>

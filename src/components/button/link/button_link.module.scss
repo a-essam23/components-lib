@@ -1,0 +1,21 @@
+.btn {
+    @apply p-4;
+    &--primary {
+        @apply text-root before:bg-root;
+    }
+    &--secondary {
+        @apply text-control before:bg-control;
+    }
+    &--wild {
+        @apply text-wild before:bg-wild;
+    }
+    &--sm {
+        @apply text-normal;
+    }
+    &--md {
+        @apply text-h5;
+    }
+    &--lg {
+        @apply text-h4;
+    }
+}

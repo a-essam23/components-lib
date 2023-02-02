@@ -1,7 +1,9 @@
-import { BaseButtonProps } from "@types";
+import { BaseButtonProps, LinkComponent } from "@types";
 
 export interface LinkButtonProps extends BaseButtonProps {
-    linkComponent?: JSX.Element;
-    onHoverAnimation?: "line";
+    type?: "link";
+    Link?: LinkComponent;
+    onHoverAnimation?: "none" | "simple" | "line";
     onClickAnimation?: "none" | "simple";
+    to?: string;
 }

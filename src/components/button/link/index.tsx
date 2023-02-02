@@ -1,4 +1,6 @@
+import styles from "./button_link.module.scss";
 import { ComponentSizes, ComponentVariants } from "@types";
+import { Link as RLink } from "react-router-dom";
 import { FC } from "react";
 import { LinkButtonProps } from "./button_link";
 
@@ -11,6 +13,9 @@ const LinkButton: FC<LinkButtonProps> = ({
     size = "md",
     onHoverAnimation = "simple",
     onClickAnimation = "simple",
+    Link = RLink,
+    to,
+    style,
 }): JSX.Element => {
     const sizeClass = () => {
         const sizes = {
@@ -18,7 +23,7 @@ const LinkButton: FC<LinkButtonProps> = ({
             md: "text-h5",
             lg: "text-h4",
         };
-        return sizes[size as ComponentSizes] || sizes["md"];
+        return styles[`btn--${size as ComponentSizes}`] || styles["btn--md"];
     };
 
     const variantClass = () => {
@@ -27,7 +32,10 @@ const LinkButton: FC<LinkButtonProps> = ({
             secondary: "text-control before:bg-control",
             wild: "text-wild before:bg-wild",
         };
-        return variants[variant as ComponentVariants] || variants["primary"];
+        return (
+            styles[`btn--${variant as ComponentVariants}`] ||
+            styles["btn--primary"]
+        );
     };
 
     const onHoverAnimationClass = () => {
@@ -55,10 +63,20 @@ const LinkButton: FC<LinkButtonProps> = ({
             ] || onClickAnimations["none"]
         );
     };
-    return (
+    return to ? (
+        <Link
+            to={to}
+            style={style}
+            className={`w-max h-max transition-all rounded-primary
+            ${sizeClass()} ${variantClass()} ${onHoverAnimationClass()} ${onClickAnimationClass()} ${className}`}
+        >
+            {children}
+        </Link>
+    ) : (
         <button
             type={hrefType}
             onClick={onClick}
+            style={style}
             className={`w-max h-max transition-all rounded-primary
             ${sizeClass()} ${variantClass()} ${onHoverAnimationClass()} ${onClickAnimationClass()} ${className}`}
         >
