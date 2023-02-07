@@ -1,3 +1,4 @@
+import styles from "./navbar.module.scss";
 import { FC } from "react";
 import { Link as RLink } from "react-router-dom";
 import { Button } from "@components";
@@ -9,44 +10,48 @@ const Navbar: FC<NavbarProps> = ({
     style,
     variant = "primary",
     Link = RLink,
-    logo = { label: "Title" },
+    logo = { primary: "Title", to: "/" },
     items,
+    Ref,
+    id = "ae-components-navbar",
+    shadowed = false,
+    animate,
 }): JSX.Element => {
-    const sizeClass = (): string => {
-        const sizes = {
-            sm: "w-9/12 xl:w-8/12 2xl:w-6/12",
-            md: "w-11/12 xl:w-10/12 2xl:w-8/12",
-            lg: "w-11/12 2xl:w-10/12",
-        };
-        return sizes[size as keyof NavbarProps["size"]] || sizes["md"];
-    };
-    const variantClass = (component: "nav" | "btn" = "nav") => {
+    const variantClass = (component: "btn" = "btn") => {
         const variants = {
-            primary: { nav: "bg-root", btn: "secondary" },
-            secondary: { nav: "bg-control", btn: "primary" },
-            wild: { nav: "bg-wild", btn: "primary" },
+            primary: { btn: "secondary" },
+            secondary: { btn: "primary" },
+            wild: { btn: "primary" },
         };
         return (
             variants[variant as keyof NavbarProps["variant"]]?.[component] ||
             variants["primary"]?.[component]
         );
     };
+
     return (
         <nav
+            id={id}
             style={style}
-            className={`${variantClass()} w-full flex items-center justify-center py-2 ${className}`}
+            ref={Ref}
+            className={`${styles["navbar"]} ${
+                styles[`navbar--${variant}`]
+            } ${className} ${shadowed ? "shadow-md" : ""}`}
         >
             <div
                 id="ae-navbar"
-                className={`flex items-center justify-between ${sizeClass()}`}
+                className={`flex items-center justify-between ${
+                    styles[`navbar--${size}`]
+                }`}
             >
                 <Link
                     type="link"
                     to={logo?.to || "/"}
-                    className="text-title text-control"
+                    className={`text-title text-control`}
                 >
-                    {logo?.label || "Title"}
+                    {logo[variant] || "Title"}
                 </Link>
+
                 <div className="flex gap-6 justify-evenly">
                     {items?.map((item, ind) => (
                         <Button

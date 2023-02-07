@@ -1,7 +1,5 @@
 import styles from "./button_block.module.scss";
-import { ComponentSizes, ComponentVariants } from "@types";
 import { BlockButtonProps } from "./button_block";
-console.log(styles);
 const BlockButton: React.FC<BlockButtonProps> = ({
     children,
     className = "",

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { LinkProps } from "react-router-dom";
 
 export type ComponentClassName = React.ComponentProps<"div">["className"];
@@ -10,10 +10,12 @@ export type LinkComponent = React.ForwardRefExoticComponent<
 >;
 
 export interface ComponentProps {
+    id?: string;
     variant?: ComponentVariants;
     size?: ComponentSizes;
     className?: ComponentClassName;
     style?: ComponentStyle;
+    Ref?: React.RefObject<HTMLElement>;
 }
 
 export interface ParentProps extends ComponentProps {

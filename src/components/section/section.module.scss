@@ -1,0 +1,21 @@
+.section {
+    @apply w-full -z-10 left-0 flex items-end absolute;
+    &--primary {
+        @apply bg-root;
+    }
+    &--secondary {
+        @apply bg-control;
+    }
+    &--wild {
+        @apply bg-wild;
+    }
+    // &--sm {
+    //     @apply text-normal px-1.5 py-1;
+    // }
+    // &--md {
+    //     @apply text-h5 px-4 py-1;
+    // }
+    // &--lg {
+    //     @apply text-h4 px-8 py-2;
+    // }
+}

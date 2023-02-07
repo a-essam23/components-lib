@@ -24,8 +24,8 @@
         "paths": {
             "@components/*": ["src/components/*"],
             "@components": ["src/components"],
-            "@public/*": ["public/*"],
-            "@public": ["public"],
+            "@assets/*": ["src/assets/*"],
+            "@assets": ["src/assets"],
             "@styles/*": ["src/styles/*"],
             "@styles": ["src/styles"],
             "@types": ["src/types"]

@@ -1,5 +1,5 @@
 import Navbar from "@components/navbar";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LayoutProps } from "./layout";
 
 const Layout = ({
@@ -15,6 +15,11 @@ const Layout = ({
     metaDescription = "",
     navbar,
 }: LayoutProps) => {
+    const [navbarDimensions, setNavbarDimensions] = useState({
+        width: 0,
+        height: 0,
+    });
+    const navbarRef = useRef<any>(null);
     const variantClass = (): string => {
         const variants = {
             primary: "bg-control",
@@ -50,17 +55,20 @@ const Layout = ({
             ?.setAttribute("content", metaDescription);
     }, [title, metaDescription]);
 
+    useEffect(() => {
+        setNavbarDimensions({
+            width: navbarRef.current?.offsetWidth,
+            height: navbarRef.current?.offsetHeight,
+        });
+    }, []);
+
     return (
-        <div className={`min-h-screen ${variantClass()}`}>
-            {navbar && <Navbar {...navbar} size={size} />}
-            {sidebar ? (
-                <div className="flex">
-                    {sidebar}
-                    {mainLayout}
-                </div>
-            ) : (
-                mainLayout
-            )}
+        <div className={`min-h-screen `}>
+            {navbar && <Navbar Ref={navbarRef} size={size} {...navbar} />}
+            <div className={`flex mt-[${navbarDimensions.height}px]`}>
+                {sidebar}
+                {mainLayout}
+            </div>
         </div>
     );
 };
