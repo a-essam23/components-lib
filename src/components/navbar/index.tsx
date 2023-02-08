@@ -35,13 +35,13 @@ const Navbar: FC<NavbarProps> = ({
             style={style}
             ref={Ref}
             className={`${styles["navbar"]} ${
-                styles[`navbar--${variant}`]
+                styles[`navbar--${variant}`] || styles[`navbar--primary`]
             } ${className} ${shadowed ? "shadow-md" : ""}`}
         >
             <div
                 id="ae-navbar"
-                className={`flex items-center justify-between ${
-                    styles[`navbar--${size}`]
+                className={`flex w-full mx-auto items-center justify-between ${
+                    styles[`navbar--${size}`] || styles["navbar--md"]
                 }`}
             >
                 <Link

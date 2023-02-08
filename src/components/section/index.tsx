@@ -1,54 +1,59 @@
 import styles from "./section.module.scss";
+import { useMeasure } from "react-use";
 import Background from "@components/background";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC } from "react";
 import { SectionProps } from "./section";
 const Section: FC<SectionProps> = ({
     id,
     title,
     className = "",
     style,
+    size = "md",
+    Ref,
     variant,
     background,
     backgroundDimensions,
     backgroundVariant,
     children,
 }) => {
-    const [sectionDimensions, setSectionDimensions] = useState({
-        height: 0,
-        width: 0,
-    });
-    const sectionRef = useRef<any>(null);
+    // * height is a state instead of ref
+    const [sectionRef, sectionDimensions] = useMeasure<HTMLElement>();
+    // const [sectionDimensions, setSectionDimensions] = useState({
+    //     height: 0,
+    //     width: 0,
+    // });
+    // const sectionRef = useRef<any>(null);
     const { width, height } = sectionDimensions;
-    useEffect(() => {
-        setSectionDimensions({
-            width: innerWidth,
-            height: sectionRef.current?.offsetHeight,
-        });
-    }, []);
+    // useEffect(() => {
+    //     setSectionDimensions({
+    //         width: innerWidth,
+    //         height: sectionRef.current?.offsetHeight,
+    //     });
+    // }, []);
+    // TODO transfer background styling to background component
     return (
         <section
             id={id}
             style={style}
-            ref={sectionRef}
-            className={`${className}`}
+            ref={Ref || sectionRef}
+            className={`
+            ${styles["section"]} 
+            ${styles[`section--${variant}`] || styles["section--primary"]}`}
         >
+            {background && (
+                <Background
+                    type={background}
+                    dimensions={backgroundDimensions || sectionDimensions}
+                    variant={backgroundVariant}
+                />
+            )}
             <div
-                style={{
-                    height: `${height}px`,
-                }}
-                className={`
-                ${styles["section"]}
-                ${styles[`section--${variant}`] || styles["primary"]} `}
+                className={`mx-auto w-full
+                ${styles[`section--${size}`] || styles["md"]}
+                ${className}`}
             >
-                {background && (
-                    <Background
-                        type={background}
-                        dimensions={backgroundDimensions || sectionDimensions}
-                        variant={backgroundVariant}
-                    />
-                )}
+                {children}
             </div>
-            {children}
         </section>
     );
 };

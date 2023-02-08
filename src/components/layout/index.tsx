@@ -1,11 +1,12 @@
+import styles from "./layout.module.scss";
 import Navbar from "@components/navbar";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { LayoutProps } from "./layout";
+// import { useMeasure } from "react-use";
 
 const Layout = ({
     children,
     className = "",
-    size,
     style,
     variant = "primary",
     header,
@@ -15,35 +16,11 @@ const Layout = ({
     metaDescription = "",
     navbar,
 }: LayoutProps) => {
-    const [navbarDimensions, setNavbarDimensions] = useState({
-        width: 0,
-        height: 0,
-    });
-    const navbarRef = useRef<any>(null);
-    const variantClass = (): string => {
-        const variants = {
-            primary: "bg-control",
-            secondary: "bg-root",
-            wild: "bg-wild",
-        };
-        return variants[variant] || variants["primary"];
-    };
-
-    const sizes = {
-        sm: "w-9/12 xl:w-8/12 2xl:w-6/12",
-        md: "w-11/12 xl:w-10/12 2xl:w-8/12",
-        lg: "w-11/12 2xl:w-10/12",
-    };
-    const sizeClass = () => {
-        return `${sizes[size as keyof LayoutProps["size"]] || sizes["md"]}`;
-    };
+    // const [navbarRef, navbarDimensions] = useMeasure<HTMLElement>();
     const mainLayout = (
         <>
             {header}
-            <main
-                style={style}
-                className={`mx-auto h-full ${sizeClass()} ${className}`}
-            >
+            <main style={style} className={`h-full w-full ${className}`}>
                 {children}
             </main>
         </>
@@ -55,20 +32,24 @@ const Layout = ({
             ?.setAttribute("content", metaDescription);
     }, [title, metaDescription]);
 
-    useEffect(() => {
-        setNavbarDimensions({
-            width: navbarRef.current?.offsetWidth,
-            height: navbarRef.current?.offsetHeight,
-        });
-    }, []);
+    // useEffect(() => {
+    //     setNavbarDimensions({
+    //         width: navbarRef.current?.offsetWidth,
+    //         height: navbarRef.current?.offsetHeight,
+    //     });
+    // }, []);
 
     return (
-        <div className={`min-h-screen `}>
-            {navbar && <Navbar Ref={navbarRef} size={size} {...navbar} />}
-            <div className={`flex mt-[${navbarDimensions.height}px]`}>
-                {sidebar}
-                {mainLayout}
-            </div>
+        <div className={`${styles["layout"]} ${styles[`layout--${variant}`]}`}>
+            {navbar && <Navbar {...navbar} />}
+            {sidebar ? (
+                <div className={`flex `}>
+                    {sidebar}
+                    {mainLayout}
+                </div>
+            ) : (
+                mainLayout
+            )}
         </div>
     );
 };

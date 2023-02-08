@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { LinkProps } from "react-router-dom";
+import { UseMeasureRef } from "react-use/lib/useMeasure";
 
 export type ComponentClassName = React.ComponentProps<"div">["className"];
 export type ComponentSizes = "sm" | "md" | "lg";
@@ -8,6 +9,11 @@ export type ComponentStyle = React.CSSProperties;
 export type LinkComponent = React.ForwardRefExoticComponent<
     LinkProps & React.RefAttributes<HTMLAnchorElement>
 >;
+export type ComponentRef =
+    | React.RefObject<HTMLElement>
+    | UseMeasureRef<HTMLElement>;
+
+export type ComponentChildren = ReactNode | ReactNode[];
 
 export interface ComponentProps {
     id?: string;
@@ -15,11 +21,11 @@ export interface ComponentProps {
     size?: ComponentSizes;
     className?: ComponentClassName;
     style?: ComponentStyle;
-    Ref?: React.RefObject<HTMLElement>;
+    Ref?: ComponentRef;
 }
 
 export interface ParentProps extends ComponentProps {
-    children?: ReactNode | ReactNode[];
+    children?: ComponentChildren;
 }
 
 export interface BaseButtonProps extends ParentProps {

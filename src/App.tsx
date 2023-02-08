@@ -1,12 +1,13 @@
 import "./index.scss";
-import { Button, Layout } from "@components";
+import { Button, Card, Layout } from "@components";
 import { BrowserRouter, Link } from "react-router-dom";
 import Section from "@components/section";
+import { H1, H2, H3, H4, H5, H6, Title } from "@components/typography";
 function App() {
     return (
         <BrowserRouter>
             <Layout
-                size="md"
+                variant="secondary"
                 navbar={{
                     shadowed: true,
                     logo: {
@@ -23,8 +24,24 @@ function App() {
                     ],
                 }}
             >
-                <Section className="h-screen" variant="primary">
-                    <Button variant="wild">Button</Button>
+                <Section
+                    className="flex justify-between"
+                    size="lg"
+                    variant="primary"
+                >
+                    <div>
+                        <Title>Text</Title>
+                        <H1>Text</H1>
+                        <H2>Text</H2>
+                        <H3>Text</H3>
+                        <H4>Text</H4>
+                        <H5>Text</H5>
+                        <H6>Text</H6>
+                        <Button variant="wild">Button</Button>
+                    </div>
+                    <div className="flex justify-center w-full">
+                        <Card variant="wild">yo</Card>
+                    </div>
                 </Section>
             </Layout>
             {/* Link={Link} */}

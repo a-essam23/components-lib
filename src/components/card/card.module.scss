@@ -1,0 +1,21 @@
+.card {
+    @apply items-center h-max w-max rounded-primary p-4;
+    &--primary {
+        @apply bg-root border-control text-control;
+    }
+    &--secondary {
+        @apply bg-control border-root text-root;
+    }
+    &--wild {
+        @apply bg-wild border-control text-control;
+    }
+    &--sm {
+        @apply p-2;
+    }
+    &--md {
+        @apply p-4;
+    }
+    &--lg {
+        @apply p-8;
+    }
+}

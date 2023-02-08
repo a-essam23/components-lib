@@ -2,7 +2,7 @@ import { NavbarProps } from "@components/navbar/navbar";
 import { ParentProps } from "@types";
 import { ReactNode } from "react";
 /// TODO ADD OGs to layout
-export interface LayoutProps extends ParentProps {
+export interface LayoutProps extends Omit<ParentProps, "size"> {
     ogTitle?: string;
     metaDescription?: string;
     ogDescription?: string | HTMLImageElement;

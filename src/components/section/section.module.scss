@@ -1,5 +1,5 @@
 .section {
-    @apply w-full -z-10 left-0 flex items-end absolute;
+    @apply py-12 sm:py-16 md:py-20 xl:py-24 2xl:py-28;
     &--primary {
         @apply bg-root;
     }
@@ -9,13 +9,13 @@
     &--wild {
         @apply bg-wild;
     }
-    // &--sm {
-    //     @apply text-normal px-1.5 py-1;
-    // }
-    // &--md {
-    //     @apply text-h5 px-4 py-1;
-    // }
-    // &--lg {
-    //     @apply text-h4 px-8 py-2;
-    // }
+    &--sm {
+        @apply w-9/12 xl:w-8/12 2xl:w-6/12;
+    }
+    &--md {
+        @apply w-11/12 xl:w-10/12 2xl:w-8/12;
+    }
+    &--lg {
+        @apply w-11/12 2xl:w-10/12;
+    }
 }

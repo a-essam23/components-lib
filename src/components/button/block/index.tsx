@@ -61,7 +61,7 @@ const BlockButton: React.FC<BlockButtonProps> = ({
             type={hrefType}
             onClick={onClick}
             className={`${styles.btn} ${
-                styles[`btn--${variant}`] || styles["primary"]
+                styles[`btn--${variant}`] || styles["btn--primary"]
             } ${
                 styles[`btn--${size}`] || styles["btn--md"]
             } ${onHoverAnimationClass()} ${onClickAnimationClass()} ${className}`}
