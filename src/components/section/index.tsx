@@ -10,7 +10,7 @@ const Section: FC<SectionProps> = ({
     style,
     size = "md",
     Ref,
-    variant,
+    variant = "primary",
     background,
     backgroundDimensions,
     backgroundVariant,
@@ -36,9 +36,7 @@ const Section: FC<SectionProps> = ({
             id={id}
             style={style}
             ref={Ref || sectionRef}
-            className={`
-            ${styles["section"]} 
-            ${styles[`section--${variant}`] || styles["section--primary"]}`}
+            className={`${styles["section"]} container--${variant}`}
         >
             {background && (
                 <Background
@@ -47,11 +45,7 @@ const Section: FC<SectionProps> = ({
                     variant={backgroundVariant}
                 />
             )}
-            <div
-                className={`mx-auto w-full
-                ${styles[`section--${size}`] || styles["md"]}
-                ${className}`}
-            >
+            <div className={`mx-auto container--${size} ${className}`}>
                 {children}
             </div>
         </section>

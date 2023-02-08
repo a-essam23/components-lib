@@ -6,4 +6,5 @@ export interface SectionProps extends ParentProps {
     background?: BackgroundProps["type"];
     backgroundDimensions?: BackgroundProps["dimensions"];
     backgroundVariant?: ParentProps["variant"];
+    cover?: "";
 }

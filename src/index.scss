@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @import "./styles/typography.scss";
+@import "./styles/global.scss";
 
 :root {
     --theme-color-root: #489fb5;

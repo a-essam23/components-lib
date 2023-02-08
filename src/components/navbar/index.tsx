@@ -6,7 +6,7 @@ import { NavbarProps } from "./navbar";
 
 const Navbar: FC<NavbarProps> = ({
     className = "",
-    size,
+    size = "md",
     style,
     variant = "primary",
     Link = RLink,
@@ -34,15 +34,13 @@ const Navbar: FC<NavbarProps> = ({
             id={id}
             style={style}
             ref={Ref}
-            className={`${styles["navbar"]} ${
-                styles[`navbar--${variant}`] || styles[`navbar--primary`]
-            } ${className} ${shadowed ? "shadow-md" : ""}`}
+            className={`${styles["navbar"]} container--${variant} ${
+                shadowed ? "shadow-md" : ""
+            } ${className}`}
         >
             <div
                 id="ae-navbar"
-                className={`flex w-full mx-auto items-center justify-between ${
-                    styles[`navbar--${size}`] || styles["navbar--md"]
-                }`}
+                className={`flex mx-auto items-center justify-between container--${size}`}
             >
                 <Link
                     type="link"

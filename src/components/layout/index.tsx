@@ -1,10 +1,10 @@
 import styles from "./layout.module.scss";
 import Navbar from "@components/navbar";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { LayoutProps } from "./layout";
 // import { useMeasure } from "react-use";
 
-const Layout = ({
+const Layout: FC<LayoutProps> = ({
     children,
     className = "",
     style,
@@ -15,7 +15,7 @@ const Layout = ({
     title = "Title",
     metaDescription = "",
     navbar,
-}: LayoutProps) => {
+}) => {
     // const [navbarRef, navbarDimensions] = useMeasure<HTMLElement>();
     const mainLayout = (
         <>

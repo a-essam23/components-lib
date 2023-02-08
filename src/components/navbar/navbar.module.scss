@@ -1,21 +1,3 @@
 .navbar {
     @apply sticky top-0 w-full flex py-2;
-    &--primary {
-        @apply bg-root;
-    }
-    &--secondary {
-        @apply bg-control;
-    }
-    &--wild {
-        @apply bg-wild;
-    }
-    &--sm {
-        @apply w-9/12 xl:w-8/12 2xl:w-6/12;
-    }
-    &--md {
-        @apply w-11/12 xl:w-10/12 2xl:w-8/12;
-    }
-    &--lg {
-        @apply w-11/12 2xl:w-10/12;
-    }
 }
